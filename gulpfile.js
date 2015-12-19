@@ -4,7 +4,7 @@ const gulp         = require('gulp')
 const imageop      = require('gulp-image-optimization')
 const pngquant     = require('imagemin-pngquant')
 const rename       = require('gulp-rename')
-const resize       = require('gulp-image-resize')
+const resize       = require('gulp-image-resize') // NOTE: requires graphicsmagick or imagemagick to be installed globally
 const watch        = require('gulp-watch')
 const webp         = require('gulp-webp')
 const mozjpg       = require('imagemin-mozjpeg')
@@ -45,11 +45,17 @@ gulp.task('img-del', () =>
   )
 )
 
+/*
+ * STAGE IMGS (MOVE THEM OUT OF RAW SOURCE, TO KEEP IT PRISTINE)
+ */
+/* CONVERT PNG TO JPG */
 gulp.task('img-png-to-jpg', function () {
   return gulp.src(imgRawPngSrc)
     .pipe(resize({ format: 'jpeg' })) //resize with empty dimensions to losslessly convert to jpg
     .pipe(gulp.dest(imgStageDir))
 });
+/* MOVE ALL IMGS TO STAGING */
+
 
 /*
  * RESIZE TO BREAKPOINTS
