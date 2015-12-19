@@ -52,5 +52,11 @@ gulp.task('img-mozjpg', () =>
     .pipe(gulp.dest(transpiledDir))
 )
 
+/* GROUP TASK */
+gulp.task('img-transpile', ['img-webp', 'img-mozjpg'])
+
 /* RESIZE TO BREAKPOINTS */
 /* OPTIMIZE ALL IMAGES */
+
+/* MASTER BUILD */
+gulp.task('default', ['img-del', 'img-transpile']);
