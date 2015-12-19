@@ -1,0 +1,20 @@
+{
+  "env": {
+    "node": true
+  },
+  "globals": {
+    "require": true,
+    "describe": true,
+    "context": true,
+    "it": true,
+    "before": true,
+    "after": true
+  },
+  "rules": {
+    "quotes": [2, "single"]
+  },
+  "ecmaFeatures": {
+    "blockBindings": true,
+    "arrowFunctions": true
+  }
+}
