@@ -1,0 +1,29 @@
+{
+  "name": "img-opto-factory",
+  "version": "1.0.0",
+  "description": "Resize and process your images automatically with this gulp tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spacerockzero/img-opto-factory.git"
+  },
+  "keywords": [
+    "image",
+    "img",
+    "optimization",
+    "opto",
+    "resize",
+    "performance",
+    "webperf",
+    "factory"
+  ],
+  "author": "Jakob Anderson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spacerockzero/img-opto-factory/issues"
+  },
+  "homepage": "https://github.com/spacerockzero/img-opto-factory#readme"
+}
