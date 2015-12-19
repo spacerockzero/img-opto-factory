@@ -4,7 +4,8 @@
   "description": "Resize and process your images automatically with this gulp tool",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "posinstall": "mkdir images images/raw images/stage images/resized images/opto"
   },
   "engines": {
     "node": "5.3.0"

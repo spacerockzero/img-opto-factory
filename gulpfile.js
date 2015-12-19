@@ -1,7 +1,6 @@
 /* DEPS */
 const del          = require('del')
 const gulp         = require('gulp')
-const imageminWebp = require('imagemin-webp')
 const imageop      = require('gulp-image-optimization')
 const pngquant     = require('imagemin-pngquant')
 const rename       = require('gulp-rename')
@@ -49,7 +48,7 @@ gulp.task('img-del', () =>
 gulp.task('img-png-to-jpg', function () {
   return gulp.src(imgRawPngSrc)
     .pipe(resize({ format: 'jpeg' })) //resize with empty dimensions to losslessly convert to jpg
-    .pipe(gulp.dest(stageDir))
+    .pipe(gulp.dest(imgStageDir))
 });
 
 /*
@@ -73,15 +72,15 @@ gulp.task('img-resize-500', () =>
     .pipe(rename({ suffix: '-500'}))
     .pipe(gulp.dest(resizedDir))
 )
-gulp.task('img-resize-1024', () =>
+gulp.task('img-resize-200sq', () =>
   gulp.src(imgRawSrc)
-    .pipe(resize({ width: 1024 }))
-    .pipe(rename({ suffix: '-1024'}))
+    .pipe(resize({ width: 200, height: 200 }))
+    .pipe(rename({ suffix: '-200'}))
     .pipe(gulp.dest(resizedDir))
 )
 
 /* GROUP TASK */
-gulp.task('img-resize', ['img-resize-1024']);
+gulp.task('img-resize', ['img-resize-1200', 'img-resize-900', 'img-resize-500', 'img-resize-200sq']);
 
 /* CREATE WEBP FROM JPG AND PNG */
 gulp.task('img-webp', () =>
