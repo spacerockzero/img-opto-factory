@@ -12,8 +12,8 @@ const mozjpg       = require('imagemin-mozjpeg')
 
 /* SOURCES */
 const imgRawSrc  = 'images/raw/**/*.+(jpg|JPG|jpeg|JPEG|gif|GIF|png|PNG|webp|WEBP)'
-const stageDir   = 'images/stage'
-const stageSrc   = 'images/stage/**/*.+(jpg|JPG|jpeg|JPEG|gif|GIF|png|PNG|webp|WEBP)'
+const transpiledDir   = 'images/transpiled'
+const transpiledSrc   = 'images/transpiled/**/*.+(jpg|JPG|jpeg|JPEG|gif|GIF|png|PNG|webp|WEBP)'
 const imgProcSrc = [
   'images/resized/*',
   'images/opto/*'
@@ -41,7 +41,7 @@ gulp.task('img-del', () =>
 gulp.task('img-webp', () =>
   gulp.src(imgRawSrc)
     .pipe(webp({ quality: 50 }))
-    .pipe(gulp.dest(stageDir))
+    .pipe(gulp.dest(transpiledDir))
 )
 
 /* CREATE MOZ JPGS FROM JPGS */
@@ -49,7 +49,7 @@ gulp.task('img-mozjpg', () =>
   gulp.src(imgRawSrc)
     .pipe(mozjpg({ quality: 50 }))
     .pipe(rename({ suffix: '-moz' }))
-    .pipe(gulp.dest(stageDir))
+    .pipe(gulp.dest(transpiledDir))
 )
 
 /* RESIZE TO BREAKPOINTS */
